@@ -1,9 +1,10 @@
 import { Component } from 'react';
 
+import MarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
-import Skeleton from '../skeleton/Skeleton'
-import MarvelService from '../../services/MarvelService';
+import Skeleton from '../skeleton/Skeleton';
+
 import './charInfo.scss';
 
 class CharInfo extends Component {
@@ -20,13 +21,11 @@ class CharInfo extends Component {
         this.updateChar();
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps){
         if (this.props.charId !== prevProps.charId) {
             this.updateChar();
         }
     }
-
-    
 
     updateChar = () => {
         const {charId} = this.props;
@@ -44,9 +43,9 @@ class CharInfo extends Component {
 
     onCharLoaded = (char) => {
         this.setState({
-            char,
+            char, 
             loading: false
-        });
+        })
     }
 
     onCharLoading = () => {
@@ -59,13 +58,13 @@ class CharInfo extends Component {
         this.setState({
             loading: false,
             error: true
-        });
+        })
     }
 
-    render () {
-
+    render() {
         const {char, loading, error} = this.state;
-        const skeleton = char || loading || error ? null : <Skeleton/> 
+
+        const skeleton = char || loading || error ? null : <Skeleton/>;
         const errorMessage = error ? <ErrorMessage/> : null;
         const spinner = loading ? <Spinner/> : null;
         const content = !(loading || error || !char) ? <View char={char}/> : null;
@@ -92,7 +91,7 @@ const View = ({char}) => {
     return (
         <>
             <div className="char__basics">
-                <img src={thumbnail} style={imgStyle} alt={name}/>
+                <img src={thumbnail} alt={name} style={imgStyle}/>
                 <div>
                     <div className="char__info-name">{name}</div>
                     <div className="char__btns">
@@ -110,23 +109,21 @@ const View = ({char}) => {
             </div>
             <div className="char__comics">Comics:</div>
             <ul className="char__comics-list">
-                {comics.length > 0 ? null : 'There are no comics with this character.'}
+                {comics.length > 0 ? null : 'There is no comics with this character'}
                 {
                     comics.map((item, i) => {
-                        
                         // eslint-disable-next-line
                         if (i > 14) return;
-
                         return (
                             <li key={i} className="char__comics-item">
-                                <a href={item.resourceURI}>{item.name}</a>
+                                {item.name}
                             </li>
                         )
                     })
-                }
+                }                
             </ul>
         </>
     )
-} 
+}
 
 export default CharInfo;
