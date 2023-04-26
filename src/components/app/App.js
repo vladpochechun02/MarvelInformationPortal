@@ -35,7 +35,7 @@ class App extends Component {
                             <CharInfo charId={this.state.selectedChar}/>
                         </ErrorBoundary>
                     </div>
-                    <img className="bg-decoration up-down" src={decoration} alt="vision"/>
+                    <img className="bg-decoration up-down"  src={decoration} alt="vision"/>
                 </main>
             </div>
         )
