@@ -7,6 +7,7 @@ import ErrorMessage from '../errorMessage/ErrorMessage';
 import Skeleton from '../skeleton/Skeleton';
 
 import './charInfo.scss';
+// import { Link } from 'react-router-dom';
 
 const CharInfo = (props) => {
 
@@ -85,7 +86,8 @@ const View = ({char}) => {
                         if (i > 9) return;
                         return (
                             <li key={i} className="char__comics-item">
-                                <a target='blank' href="http://marvel.com/comics/characters/1011196/captain_flint?utm_campaign=apiRef&utm_source=66f7d4e33a5e1e95719d5123c25cbf88">{item.name}</a>
+                                <a target='blank' href="http://marvel.com/comics/characters/1011196/captain_flint?utm_campaign=apiRef&utm_source=66f7d4e33a5e1e95719d5123c25cbf88">{item.name} </a>
+                                {/* <Link to={`comic/${item.comics}`}>{item.name} </Link> */}
                             </li>
                         )
                     })
