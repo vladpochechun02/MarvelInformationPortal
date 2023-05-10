@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
@@ -65,9 +66,12 @@ const View = ({char}) => {
                 <div>
                     <div className="char__info-name">{name}</div>
                     <div className="char__btns">
-                        <a href={homepage} className="button button__main">
+                        {/* <a href={homepage} className="button button__main">
                             <div className="inner">homepage</div>
-                        </a>
+                        </a> */}
+                        <Link to={`/characters/${char.id}`} className="button button__main">
+                            <div className="inner">homepage</div>
+                        </Link>
                         <a href={wiki} className="button button__secondary">
                             <div className="inner">Wiki</div>
                         </a>
@@ -88,6 +92,7 @@ const View = ({char}) => {
                             <li key={i} className="char__comics-item">
                                 <a target='blank' href="http://marvel.com/comics/characters/1011196/captain_flint?utm_campaign=apiRef&utm_source=66f7d4e33a5e1e95719d5123c25cbf88">{item.name} </a>
                                 {/* <Link to={`comic/${item.comics}`}>{item.name} </Link> */}
+                                {/* <Link to={`/comics/${char.id}`}>{item.name}</Link> */}
                             </li>
                         )
                     })

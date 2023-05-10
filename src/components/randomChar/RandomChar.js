@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Spinner from '../spinner/Spinner';
+import {Link} from 'react-router-dom';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import useMarvelService from '../../services/MarvelService';
 
@@ -76,9 +77,12 @@ const View = ({char}) => {
                     {description}
                 </p>
                 <div className="randomchar__btns">
-                    <a target='blank' href={homepage} className="button button__main">
+                    {/* <a target='blank' href={homepage} className="button button__main">
                         <div className="inner">homepage</div>
-                    </a>
+                    </a> */}
+                    <Link to={`/characters/${char.id}`} className="button button__main">
+                        <div className="inner">homepage</div>
+                    </Link>
                     <a target='blank' href={wiki} className="button button__secondary">
                         <div className="inner">Wiki</div>
                     </a>
