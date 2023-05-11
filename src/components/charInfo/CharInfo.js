@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
@@ -66,13 +66,13 @@ const View = ({char}) => {
                 <div>
                     <div className="char__info-name">{name}</div>
                     <div className="char__btns">
-                        {/* <a href={homepage} className="button button__main">
+                        <a href={homepage} target='blank' className="button button__main">
                             <div className="inner">homepage</div>
-                        </a> */}
-                        <Link to={`/characters/${char.id}`} className="button button__main">
+                        </a>
+                        {/* <Link to={`/characters/${char.id}`} className="button button__main">
                             <div className="inner">homepage</div>
-                        </Link>
-                        <a href={wiki} className="button button__secondary">
+                        </Link> */}
+                        <a href={wiki} target='blank' className="button button__secondary">
                             <div className="inner">Wiki</div>
                         </a>
                     </div>
